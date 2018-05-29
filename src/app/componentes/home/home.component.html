@@ -1,0 +1,46 @@
+<app-teclado></app-teclado>
+<app-nav-lateral></app-nav-lateral>
+<section class="ContentPage full-width">
+    <app-nav-superior></app-nav-superior>
+    <div class="row">
+        <article class="col s12">
+            <h4 style="text-align: center">
+                <strong>¿Donde desea ir?</strong>
+            </h4>
+            <hr>
+            <ul class="timeline">
+                <li class="col s6" *ngFor="let ruta of rutas3">
+                    <div class="timeline-panel">
+                        <h5 style="text-align: center; color: rgb(211, 36, 43)">
+                            <strong>{{ruta.Destino}}</strong>
+                        </h5>
+                        <hr>
+                        <br>
+                        <div>
+                            <div>
+                                <h6>
+                                    <i class="zmdi zmdi-circle"></i>
+                                    <strong> El precio del pasaje es de ${{ruta.Precio}} </strong>
+                                </h6>
+                            </div>
+                            <div>
+                                <h6>
+                                    <i class="zmdi zmdi-circle"></i>
+                                    <strong> El modo de viaje es {{ruta.Nombre}} </strong>
+                                </h6>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <a  class=" waves-effect waves-light btn-large " 
+                        style=" position: relative; 
+                                bottom: 99px; 
+                                left: 56%; 
+                                background: rgb(107, 186, 218) ">
+                            Realizar venta!
+                        </a>
+                </li>
+            </ul>
+        </article>
+    </div>
+</section>
