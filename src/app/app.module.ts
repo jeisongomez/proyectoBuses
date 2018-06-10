@@ -11,6 +11,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { ErrorComponent } from './componentes/error/error.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { TecladoComponent } from './componentes/teclado/teclado.component';
+import { FacturacionComponent } from './componentes/facturacion/facturacion.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TecladoComponent } from './componentes/teclado/teclado.component';
     HomeComponent,
     LoginComponent,
     ErrorComponent,
-    TecladoComponent
+    TecladoComponent,
+    FacturacionComponent
   ],
   imports: [
     BrowserModule,

@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
     )
   }
 
-  lasRutas(user){
+  lasRutas(user) {
     console.log(user);
     this._rutasService.obtenerRutas(user).subscribe(
       response => {

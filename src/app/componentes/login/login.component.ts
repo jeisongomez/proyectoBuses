@@ -17,12 +17,27 @@ export class LoginComponent implements OnInit {
   public respuesta;
   public teclado;
 
+  public corcheteA;
+  public corcheteC;
+  public llaveA;
+  public llaveC;
+
+  emitirEventoa() {
+    console.log(this.teclado);
+    this.usuario.nombreUsuario = this.teclado;
+  }
+
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
     private _loginService: LoginService
   ) {
     this.usuario = new User(null, '', '');
+    this.corcheteA = '[';
+    this.corcheteC = ']';
+    this.llaveA = '{';
+    this.llaveC = '}';
+    this.teclado = '';
   }
 
   ngOnInit() {

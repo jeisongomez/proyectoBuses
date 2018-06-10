@@ -13,12 +13,9 @@ export class TecladoComponent implements OnInit {
   public llaveC;
   public teclado;
 
-  @Output() pasarDatos = new EventEmitter();
+  emitirEventoa() {
+    console.log(this.teclado);
 
-  emitirEvento(){
-    this.pasarDatos.emit({
-      'teclado': this.teclado
-    });
   }
 
   constructor() {
@@ -26,6 +23,7 @@ export class TecladoComponent implements OnInit {
     this.corcheteC = ']';
     this.llaveA = '{';
     this.llaveC = '}';
+    this.teclado = '';
   }
 
   ngOnInit() {
