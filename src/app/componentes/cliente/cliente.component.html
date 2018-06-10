@@ -1,0 +1,87 @@
+<app-nav-lateral></app-nav-lateral>
+<section class="ContentPage full-width">
+  <app-nav-superior></app-nav-superior>
+  <div class="container">
+    <div class="row">
+      <h2 class="center-align">Ingresar datos del cliente</h2>
+      <form #formCliente="ngForm" (ngSubmit)="onSubmit()" class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="first_name" type="text" #Identidad="ngModel" name="Identidad" class="validate" [(ngModel)]="cliente.docIdentidad"
+              autocomplete="off" required pattern="[0-9]+">
+            <label for="first_name">
+              Documento De Identidad &nbsp;
+              <span *ngIf="!Identidad.valid && Identidad.touched" style="color: rgb(211, 36, 43)"> EL DOCUMENTO DE IDENTIDAD NO ES CORRECTO </span>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" #primernombre="ngModel" name="primernombre" class="validate" [(ngModel)]="cliente.priNombre"
+              autocomplete="off" required>
+            <label for="first_name">
+              Primer Nombre &nbsp;
+              <span *ngIf="!primernombre.valid && primernombre.touched" style="color: rgb(211, 36, 43)"> EL CAMPO ES OBLIGATORIO </span>
+            </label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" name="segundonombre" class="validate" [(ngModel)]="cliente.segNombre" autocomplete="off">
+            <label for="last_name">Segundo Nombre</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" #primerapellido="ngModel" name="primerapellido" class="validate" [(ngModel)]="cliente.priApellido"
+              autocomplete="off" required>
+            <label for="first_name">
+              Primer Apellido
+              <span *ngIf="!primerapellido.valid && primerapellido.touched" style="color: rgb(211, 36, 43)"> EL CAMPO ES OBLIGATORIO </span>
+            </label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" name="segundoapellido" class="validate" [(ngModel)]="cliente.segApellido" autocomplete="off">
+            <label for="last_name">Segundo Apellido</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" #telofono="ngModel" name="telofono" class="validate" [(ngModel)]="cliente.telefono" autocomplete="off"
+              required pattern="[0-9]+">
+            <label for="first_name">
+              Telofono &nbsp;
+              <span *ngIf="!telofono.valid && telofono.touched" style="color: rgb(211, 36, 43)"> EL TELEFONO NO ES CORRECTO </span>
+            </label>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="email" type="email" #correo="ngModel" name="correo" class="validate" [(ngModel)]="cliente.email" autocomplete="off"
+                required>
+              <label for="email">
+                Correo Electronico
+                <span *ngIf="!correo.valid && correo.touched" style="color: rgb(211, 36, 43)"> EL CAMPO NO ES CORRECTO </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" #direccion="ngModel" name="direccion" class="materialize-textarea" [(ngModel)]="cliente.direccion"
+              required></textarea>
+            <label for="textarea1">
+              Dirección
+              <span *ngIf="!direccion.valid && direccion.touched" style="color: rgb(211, 36, 43)"> EL CAMPO NO ES CORRECTO </span>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class=" input-field col s4"></div>
+          <div class="col s4">
+            <button style="width: 100%;" type="submit" [disabled]="!formCliente.form.valid" class="waves-effect waves-teal btn-large">
+              Crear Cliente
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

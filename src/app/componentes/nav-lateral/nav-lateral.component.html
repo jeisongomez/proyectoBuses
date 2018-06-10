@@ -94,7 +94,7 @@
                         </li>
                         <li *ngIf="CrearCliente == '1'" class="NavLateralDivider"></li>
                         <li *ngIf="CrearCliente == '1'">
-                            <a class="waves-effect waves-light"> Crear Clientes </a>
+                            <a [routerLink]="['/cliente']" class="waves-effect waves-light"> Crear Clientes </a>
                         </li>
                         <li *ngIf="EditarCliente == '1'" class="NavLateralDivider"></li>
                         <li *ngIf="EditarCliente == '1'">

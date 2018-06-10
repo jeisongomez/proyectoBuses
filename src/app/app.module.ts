@@ -12,6 +12,7 @@ import { ErrorComponent } from './componentes/error/error.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { TecladoComponent } from './componentes/teclado/teclado.component';
 import { FacturacionComponent } from './componentes/facturacion/facturacion.component';
+import { ClienteComponent } from './componentes/cliente/cliente.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FacturacionComponent } from './componentes/facturacion/facturacion.comp
     LoginComponent,
     ErrorComponent,
     TecladoComponent,
-    FacturacionComponent
+    FacturacionComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,
