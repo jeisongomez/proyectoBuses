@@ -22,6 +22,13 @@ export class CrearEmpleadoComponent implements OnInit {
   public respuesta3;
   public respuesta4;
   public idRolMayor;
+  public respuesta5;
+  public respuesta6;
+  public respuesta7;
+  public respuesta8;
+  public idLoginMayor;
+  public respuesta9;
+  public respuesta10;
 
   constructor(
     private _route: ActivatedRoute,
@@ -88,7 +95,7 @@ export class CrearEmpleadoComponent implements OnInit {
   onSubmit() {
     this.convertRoles();
     //console.log(this.empleado);
-    console.log(this.roles);
+    //console.log(this.roles);
     //console.log(this.newUser);
     this._rolesService.addRoles(this.roles).subscribe(
       response => {
@@ -106,8 +113,58 @@ export class CrearEmpleadoComponent implements OnInit {
               if (this.respuesta4.code == 200) {
                 this.idRolMayor = parseInt(this.respuesta4.data[0].idRoles);
                 //console.log(this.idRolMayor);
-                
-              }else{
+                this._empleadosService.addlogin(this.newUser).subscribe(
+                  response2 => {
+                    this.respuesta5 = response2;
+                    //console.log(this.respuesta5);
+                    this.respuesta6 = JSON.parse(this.respuesta5._body);
+                    if (this.respuesta6.code == 400) {
+                      alert('algo salio mal a introducir el login');
+                    } else {
+                      this._empleadosService.obtenerIdLogin().subscribe(
+                        response3 => {
+                          this.respuesta7 = response3;
+                          //console.log(this.respuesta7);
+                          this.respuesta8 = JSON.parse(this.respuesta7._body);
+                          if (this.respuesta8.code == 200) {
+                            this.idLoginMayor = parseInt(this.respuesta8.data[0].idLogin);
+                            console.log(this.idLoginMayor);
+                            this.empleado.Login_idLogin = this.idLoginMayor;
+                            this.empleado.Roles_idRoles = this.idRolMayor;
+                            this._empleadosService.addEmpleado(this.empleado).subscribe(
+                              response4 => {
+                                this.respuesta9 = response4;
+                                //console.log(this.respuesta9);
+                                this.respuesta10 = JSON.parse(this.respuesta9._body);
+                                if(this.respuesta10.code == 400){
+                                  alert('lo sentimos el cliente no pudo ser creado');
+                                }else{
+                                  alert('El Empleado se creo correctamente');
+                                  this._router.navigate(['home']);
+                                }
+                              },
+                              error4 => {
+                                console.log(<any>error4);
+                                alert(<any>error4);
+                              }
+                            )
+                          } else {
+                            alert('algo salio mal al obtener el id login');
+                          }
+                        },
+                        error3 => {
+                          console.log(<any>error3);
+                          alert(<any>error3);
+                        }
+                      )
+                    }
+                  },
+                  error2 => {
+                    console.log(<any>error2);
+                    alert(<any>error2);
+                  }
+                )
+              } else {
                 alert('algo salio mal al obtener el rol mayor');
               }
             },

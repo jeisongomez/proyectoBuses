@@ -69,10 +69,26 @@ export class NavLateralComponent implements OnInit {
     if (this.ConsultarBuses == '0' && this.CrearBuses == '0' && this.EditarBuses == '0') {
       this.buses = '1';
     };
+
+    if (this.ConsultarEmpleado == '' && this.CrearEmpleado == '' && this.EditarEmpleado == '' && this.BorrarEmpleado == '') {
+      this.empleados = '1';
+    };
+
+    if (this.ConsultarRutas == '' && this.CrearRutas == '' && this.EditarRutas == '') {
+      this.rutas = '1';
+    };
+
+    if (this.ConsultarCliente == '' && this.CrearCliente == '' && this.EditarCliente == '') {
+      this.clientes = '1';
+    };
+
+    if (this.ConsultarBuses == '' && this.CrearBuses == '0' && this.EditarBuses == '') {
+      this.buses = '1';
+    };
   };
 
   obtenerUsusario() {
-    this.logueado = JSON.parse(localStorage.getItem('usuario'));
+    this.logueado = JSON.parse(localStorage.getItem('logueadoo'));
     console.log(this.logueado);
   }
 
