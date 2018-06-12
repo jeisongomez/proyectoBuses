@@ -44,6 +44,7 @@ export class NavSuperiorComponent implements OnInit {
         if (this.usuario2.code == 400) {
           console.log('hay un error en el sistema')
         } else {
+          localStorage.setItem('logueadoo', JSON.stringify(this.usuario2.data));
           this.nombreUsuario = this.usuario2.data.Nombre;
           this.apellidoUsuario = this.usuario2.data.Apellido;
           this.cargo = this.usuario2.data.Cargo;

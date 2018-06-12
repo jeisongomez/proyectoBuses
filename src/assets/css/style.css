@@ -743,6 +743,10 @@ body, html{
     color: white;
 }
 
+.capitalize {
+    text-transform: capitalize;
+}
+
 /*teclado*/
 #containerL {
     margin: 1rem;

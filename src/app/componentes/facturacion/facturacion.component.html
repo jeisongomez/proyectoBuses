@@ -1,3 +1,132 @@
-<p>
-  facturacion works!
-</p>
+<app-nav-lateral></app-nav-lateral>
+<section class="ContentPage full-width">
+  <app-nav-superior></app-nav-superior>
+  <br>
+  <h3 style="text-align: center">
+    <strong>Realizar Venta</strong>
+  </h3>
+  <div class="row ">
+    <br>
+    <form #formExistCliente="ngForm" (ngSubmit)="onSubmit()" class="col s12">
+      <div class="row">
+        <div class="input-field col s1"></div>
+        <div class="input-field col s7">
+          <input id="first_name" type="text" #Identidad="ngModel" name="Identidad" class="validate" [(ngModel)]="cliente.Documento"
+            autocomplete="off" required pattern="[0-9]+">
+          <label for="first_name">
+            Numero de identificacion del cliente &nbsp;
+            <span *ngIf="!Identidad.valid && Identidad.touched" style="color: rgb(211, 36, 43)"> DATO INCORRECTO </span>
+          </label>
+        </div>
+        <div class="col s3">
+          <button style="width: 100%;" type="submit" [disabled]="!formExistCliente.form.valid" class="waves-effect waves-teal btn-large">
+            Siguiente
+          </button>
+        </div>
+      </div>
+    </form>
+    <div *ngIf="crear == '1' ">
+      <div class="row">
+        <div class="input-field col s4"></div>
+        <div class="col s4" style="text-align: center">
+          <h5>El cliente no existe </h5>
+          <a (click)="crearNew()" class="waves-effect waves-light btn-large">Crear un nuevo cliente</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="vender == '1' ">
+    <div class="row">
+      <div class="col s12">
+        <ul class="timeline">
+          <li>
+            <div class="timeline-panel">
+              <ul class="timeline">
+                <li>
+                  <div class="timeline-panel col s6">
+                    <h5>Datos del cliente</h5>
+                    <p>
+                      <strong class="capitalize">Nombre: </strong>
+                      <span class="capitalize">{{newCliente.Nombre}} {{newCliente.Apellido}}.</span>
+                      <br>
+                      <strong class="capitalize">Cedula: </strong> {{newCliente.Documento}}.
+                      <br>
+                      <strong>Email: </strong> {{newCliente.Email}}
+                    </p>
+                  </div>
+                  <div class="timeline-panel col s6">
+                    <h5>Datos del vendedor</h5>
+                    <p>
+                      <strong class="capitalize">Nombre: </strong>
+                      <span class="capitalize">{{usuario.Nombre}} {{usuario.Apellido}}.</span>
+                      <br>
+                      <strong class="capitalize">Cargo: </strong>
+                      <span class="capitalize">{{usuario.Cargo}}.</span>
+                      <br>
+                      <strong>Email: </strong> {{usuario.Email}}.
+                    </p>
+                  </div>
+                  <div class="timeline-panel col s12">
+                    <div>
+                      <ul>
+                        <li>
+                          <h5 style="text-align: center"> Seleccione El Lugar Donde Desea Ir </h5>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="timeline-panel col s12">
+                    <div>
+                      <ul>
+                        <li>
+                          <div class="row">
+                            <div class="col s6">
+                              <h6 *ngIf="!rutaActual">
+                                <br>
+                                <br>
+                                <br>
+                                <strong style="color: rgb(211, 36, 43)">LUGAR DE DESTINO AUN NO SELECCIONADO!</strong>
+                              </h6>
+                              <h6 *ngIf="rutaActual">
+                                <strong> Origen: {{rutaActual.Orgien}} </strong>
+                                <br>
+                                <br>
+                                <strong> Destino: {{rutaActual.Destino}} </strong>
+                                <br>
+                                <br>
+                                <strong> Precio: $ {{rutaActual.Precio}} </strong>
+                                <br>
+                                <br>
+                                <strong> Placa Del Bus: {{placaBus}} </strong>
+                              </h6>
+                            </div>
+                            <div class="col s6">
+                              <div class="row">
+                                <div class="col s6" *ngFor="let ruta of rutas">
+                                  <a style="text-align: center; margin-bottom: 10px; width: 187px;" class="waves-effect waves-light btn-large" (click)="datosFactura(ruta)">
+                                    {{ruta.Destino}} </a> &nbsp; &nbsp;
+                                </div>
+                              </div>
+                            </div>
+                            <hr>
+                            <br>
+                            <br>
+                            <div class="row">
+                              <div class="col s12" style="text-align: center">
+                                <button type="submit" (click)="facturacion()" [disabled]="!rutaActual" class="waves-effect waves-light btn-large">Realizar venta</button>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

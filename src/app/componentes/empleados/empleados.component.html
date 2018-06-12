@@ -1,0 +1,65 @@
+<app-nav-lateral></app-nav-lateral>
+<section class="ContentPage full-width">
+  <app-nav-superior></app-nav-superior>
+  <div class="row">
+    <h3 style="text-align: center"><strong>Empleados De La Empresa</strong></h3>
+    <div class="col s12">
+      <table class="highlight" [mfData]="data | dataFilterEmpleados : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage"
+        [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+        <thead>
+          <tr>
+            <th colspan="5">
+              Buscar Por Codigo De Empleado
+              <input class="form-control" [(ngModel)]="filterQuery" />
+            </th>
+          </tr>
+          <tr>
+            <th style="width: 10%">
+              <mfDefaultSorter>Codigo Empleado</mfDefaultSorter>
+            </th>
+            <th style="width: 10%">
+              <mfDefaultSorter>Ubicacion</mfDefaultSorter>
+            </th>
+            <th style="width: 10%">
+              <mfDefaultSorter>Nombre</mfDefaultSorter>
+            </th>
+            <th style="width: 10%">
+              <mfDefaultSorter>Apellido</mfDefaultSorter>
+            </th>
+            <th style="width: 10%">
+              <mfDefaultSorter>Telefono</mfDefaultSorter>
+            </th>
+            <th style="width: 15%">
+              <mfDefaultSorter>Direccion</mfDefaultSorter>
+            </th>
+            <th style="width: 10%">
+              <mfDefaultSorter>Cargo</mfDefaultSorter>
+            </th>
+            <th style="width: 25%">
+              <mfDefaultSorter>Email</mfDefaultSorter>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of mf.data">
+            <td>{{item.idEmpleados}}</td>
+            <td>{{item.ubicacion}}</td>
+            <td>{{item.Nombre}}</td>
+            <td>{{item.Apellido}}</td>
+            <td>{{item.Telefono}}</td>
+            <td>{{item.Direccion}}</td>
+            <td>{{item.Cargo}}</td>
+            <td>{{item.Email}}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">
+              <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>

@@ -24,11 +24,11 @@
                         <i class="zmdi zmdi-chevron-down NavLateral-CaretDown"></i> Facturación </a>
                     <ul class="full-width">
                         <li *ngIf="CrearFactura == '1'">
-                            <a class="waves-effect waves-light"> Realizar Venta </a>
+                            <a [routerLink]="['/facturacion']" class="waves-effect waves-light"> Realizar Venta </a>
                         </li>
                         <li *ngIf="ConsultarFactura == '1'" class="NavLateralDivider"></li>
                         <li *ngIf="ConsultarFactura == '1'">
-                            <a class="waves-effect waves-light"> Consultar facturas </a>
+                            <a [routerLink]="['/detalles-facturas']" class="waves-effect waves-light"> Consultar facturas </a>
                         </li>
                     </ul>
                 </li>
@@ -42,7 +42,7 @@
                             <a class="waves-effect waves-light"> No puedes realizar esta acción </a>
                         </li>
                         <li *ngIf="ConsultarEmpleado == '1'">
-                            <a class="waves-effect waves-light"> Consultar Empleado </a>
+                            <a [routerLink]="['/detalles-empleados']" class="waves-effect waves-light"> Consultar Empleado </a>
                         </li>
                         <li *ngIf="CrearEmpleado == '1'" class="NavLateralDivider"></li>
                         <li *ngIf="CrearEmpleado == '1'">

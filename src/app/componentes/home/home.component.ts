@@ -84,6 +84,7 @@ export class HomeComponent implements OnInit {
         //console.log(this.rutas2);
         //console.log(this.rutas2.data);
         this.rutas3 = this.rutas2.data;
+        localStorage.setItem('rutas', JSON.stringify(this.rutas3));
         console.log(this.rutas3);
       },
       error => {

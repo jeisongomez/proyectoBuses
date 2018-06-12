@@ -7,7 +7,7 @@
       <form #formCliente="ngForm" (ngSubmit)="onSubmit()" class="col s12">
         <div class="row">
           <div class="input-field col s12">
-            <input id="first_name" type="text" #Identidad="ngModel" name="Identidad" class="validate" [(ngModel)]="cliente.docIdentidad"
+            <input id="first_name" type="text" #Identidad="ngModel" name="Identidad" class="validate" [(ngModel)]="cliente.Documento"
               autocomplete="off" required pattern="[0-9]+">
             <label for="first_name">
               Documento De Identidad &nbsp;
@@ -17,60 +17,32 @@
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input id="first_name" type="text" #primernombre="ngModel" name="primernombre" class="validate" [(ngModel)]="cliente.priNombre"
+            <input id="first_name" type="text" #primernombre="ngModel" name="primernombre" class="validate" [(ngModel)]="cliente.Nombre"
               autocomplete="off" required>
             <label for="first_name">
-              Primer Nombre &nbsp;
+              Nombre &nbsp;
               <span *ngIf="!primernombre.valid && primernombre.touched" style="color: rgb(211, 36, 43)"> EL CAMPO ES OBLIGATORIO </span>
             </label>
           </div>
           <div class="input-field col s6">
-            <input id="last_name" type="text" name="segundonombre" class="validate" [(ngModel)]="cliente.segNombre" autocomplete="off">
-            <label for="last_name">Segundo Nombre</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-            <input id="first_name" type="text" #primerapellido="ngModel" name="primerapellido" class="validate" [(ngModel)]="cliente.priApellido"
+            <input id="first_name" type="text" #primerapellido="ngModel" name="primerapellido" class="validate" [(ngModel)]="cliente.Apellido"
               autocomplete="off" required>
             <label for="first_name">
-              Primer Apellido
+              Apellido
               <span *ngIf="!primerapellido.valid && primerapellido.touched" style="color: rgb(211, 36, 43)"> EL CAMPO ES OBLIGATORIO </span>
             </label>
           </div>
-          <div class="input-field col s6">
-            <input id="last_name" type="text" name="segundoapellido" class="validate" [(ngModel)]="cliente.segApellido" autocomplete="off">
-            <label for="last_name">Segundo Apellido</label>
-          </div>
         </div>
         <div class="row">
-          <div class="input-field col s6">
-            <input id="first_name" type="text" #telofono="ngModel" name="telofono" class="validate" [(ngModel)]="cliente.telefono" autocomplete="off"
-              required pattern="[0-9]+">
-            <label for="first_name">
-              Telofono &nbsp;
-              <span *ngIf="!telofono.valid && telofono.touched" style="color: rgb(211, 36, 43)"> EL TELEFONO NO ES CORRECTO </span>
-            </label>
-          </div>
           <div class="row">
-            <div class="input-field col s6">
-              <input id="email" type="email" #correo="ngModel" name="correo" class="validate" [(ngModel)]="cliente.email" autocomplete="off"
+            <div class="input-field col s12">
+              <input id="email" type="email" #correo="ngModel" name="correo" class="validate" [(ngModel)]="cliente.Email" autocomplete="off"
                 required>
               <label for="email">
                 Correo Electronico
                 <span *ngIf="!correo.valid && correo.touched" style="color: rgb(211, 36, 43)"> EL CAMPO NO ES CORRECTO </span>
               </label>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <textarea id="textarea1" #direccion="ngModel" name="direccion" class="materialize-textarea" [(ngModel)]="cliente.direccion"
-              required></textarea>
-            <label for="textarea1">
-              Dirección
-              <span *ngIf="!direccion.valid && direccion.touched" style="color: rgb(211, 36, 43)"> EL CAMPO NO ES CORRECTO </span>
-            </label>
           </div>
         </div>
         <div class="row">
