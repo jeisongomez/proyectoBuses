@@ -1,3 +1,171 @@
-<p>
-  crear-empleado works!
-</p>
+<app-nav-lateral></app-nav-lateral>
+<section class="ContentPage full-width">
+  <app-nav-superior></app-nav-superior>
+  <div class="container">
+    <div class="row">
+      <h2 class="center-align">Ingresar Datos Del Empleado</h2>
+      <form #formEmpleado="ngForm" (ngSubmit)="onSubmit()" class="col s12">
+        <div class="row">
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" [(ngModel)]="empleado.Nombre" name="primernombre" class="validate" autocomplete="off"
+              required>
+            <label for="first_name">
+              Nombre &nbsp;
+            </label>
+          </div>
+          <div class="input-field col s6">
+            <input id="first_name" type="text" [(ngModel)]="empleado.Apellido" name="primerapellido" class="validate" autocomplete="off" required>
+            <label for="first_name">
+              Apellido
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" [(ngModel)]="empleado.Telefono" name="Identidad" class="validate" autocomplete="off" required pattern="[0-9]+">
+            <label for="first_name">
+              Telefono &nbsp;
+            </label>
+          </div>
+          <div class="input-field col s6">
+            <input id="first_name" type="text" [(ngModel)]="empleado.Cargo" name="primerapellido1" class="validate" autocomplete="off" required>
+            <label for="first_name">
+              Cargo
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" [(ngModel)]="empleado.ubicacion" name="primernombre1" class="validate" autocomplete="off" required>
+            <label for="first_name">
+              Ubicacion &nbsp;
+            </label>
+          </div>
+          <div class="input-field col s6">
+            <input id="first_name" type="text" [(ngModel)]="empleado.Direccion" name="primerapellido2" class="validate" autocomplete="off" required>
+            <label for="first_name">
+              Direccion
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" [(ngModel)]="empleado.Email" name="correo" class="validate" autocomplete="off" required>
+            <label for="email">
+              Correo Electronico
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <h5 style="text-align: center"> Asignar Roles Del Empleado </h5>
+            <div class="row">
+              <ul class="timeline">
+                <li>
+                  <div class="timeline-panel col s4">
+                    <h6 style="text-align: center; color: rgb(211, 43, 36);">
+                      <strong>Clientes</strong>
+                    </h6>
+                    <input type="checkbox" [(ngModel)]="roles.ConsultarCliente" name="a" id="a" class="validate " required>
+                    <label for="a"> Consultar Clientes </label>
+                    <br>
+                    <input type="checkbox" [(ngModel)]="roles.CrearCliente" name="b" id="b" class="validate " required>
+                    <label for="b"> Crear Clientes </label>
+                    <br>
+                    <input type="checkbox" [(ngModel)]="roles.EditarCliente" name="c" id="c" class="validate " required>
+                    <label for="c"> Editar Clientes </label>
+                  </div>
+                  <div class="timeline-panel col s4">
+                    <h6 style="text-align: center; color: rgb(211, 43, 36);">
+                      <strong>Rutas</strong>
+                    </h6>
+                    <input type="checkbox" [(ngModel)]="roles.ConsultarRutas" name="d" id="d" class="validate " required>
+                    <label for="d"> Consultar Rutas </label>
+                    <br>
+                    <input type="checkbox" [(ngModel)]="roles.CrearRutas" name="e" id="e" class="validate" required>
+                    <label for="e"> Crear Rutas </label>
+                    <br>
+                    <input type="checkbox" [(ngModel)]="roles.EditarRutas" name="f" id="f" class="validate " required>
+                    <label for="f"> Editar Rutas </label>
+                  </div>
+                  <div class="timeline-panel col s4">
+                    <h6 style="text-align: center; color: rgb(211, 43, 36);">
+                      <strong>Buses</strong>
+                    </h6>
+                    <input type="checkbox" [(ngModel)]="roles.ConsultarBuses" name="g" id="g" class="validate " required>
+                    <label for="g"> Consultar Buses </label>
+                    <br>
+                    <input type="checkbox" [(ngModel)]="roles.CrearBuses" name="h" id="h" class="validate " required>
+                    <label for="h"> Crear Buses </label>
+                    <br>
+                    <input type="checkbox" [(ngModel)]="roles.EditarBuses" name="i" id="i" class="validate" required>
+                    <label for="i"> Editar Buses </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="row">
+              <ul class="timeline">
+                <li>
+                  <div class="timeline-panel col s6">
+                    <h6 style="text-align: center; color: rgb(211, 43, 36);">
+                      <strong>Empleados</strong>
+                    </h6>
+                    <input type="checkbox" [(ngModel)]="roles.ConsultarEmpleado" name="j" id="j" class="validate " required>
+                    <label for="j"> Consultar Empleados </label>
+                    <br>
+                    <input type="checkbox" [(ngModel)]="roles.CrearEmpleado" name="k" id="k" class="validate " required>
+                    <label for="k"> Crear Empleados </label>
+                    <br>
+                    <input type="checkbox" [(ngModel)]="roles.EditarEmpleado" name="l" id="l" class="validate " required>
+                    <label for="l"> Editar Empleados </label>
+                    <br>
+                    <input type="checkbox" [(ngModel)]="roles.BorrarEmpleado" name="m" id="m" class="validate " required>
+                    <label for="m"> Borrar Empleados </label>
+                  </div>
+                  <div class="timeline-panel col s6">
+                    <h6 style="text-align: center; color: rgb(211, 43, 36);">
+                      <strong>Facturacion</strong>
+                    </h6>
+                    <input type="checkbox" value="" [(ngModel)]="roles.ConsultarFactura" name="o" id="o" class="validate " required>
+                    <label for="o"> Consultar Facturas </label>
+                    <br>
+                    <input type="checkbox" [(ngModel)]="roles.CrearFactura" name="p" id="p" class="validate " required>
+                    <label for="p"> Realizar Ventas </label>
+                    <br>
+                    <br>
+                    <br>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" [(ngModel)]="newUser.NombreUsuario" type="text" name="primernombre5" class="validate" autocomplete="off" required>
+            <label for="first_name">
+              Usuario &nbsp;
+            </label>
+          </div>
+          <div class="input-field col s6">
+            <input id="first_name" [(ngModel)]="newUser.Contrasena" type="text" name="primerapellido5" class="validate" autocomplete="off" required>
+            <label for="first_name">
+              Contraseña
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class=" input-field col s4"></div>
+          <div class="col s4">
+            <button style="width: 100%;" type="submit"  class="waves-effect waves-teal btn-large">
+              Crear Cliente
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

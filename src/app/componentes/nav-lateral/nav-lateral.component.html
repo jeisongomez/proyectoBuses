@@ -46,7 +46,7 @@
                         </li>
                         <li *ngIf="CrearEmpleado == '1'" class="NavLateralDivider"></li>
                         <li *ngIf="CrearEmpleado == '1'">
-                            <a class="waves-effect waves-light"> Crear Empleado </a>
+                            <a [routerLink]="['/add-empleado']" class="waves-effect waves-light"> Crear Empleado </a>
                         </li>
                         <li *ngIf="EditarEmpleado == '1'" class="NavLateralDivider"></li>
                         <li *ngIf="EditarEmpleado == '1'">
@@ -123,6 +123,12 @@
                             <a class="waves-effect waves-light"> Editar Buses </a>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <a href="../../../assets/Manual De Usuario.pdf" target="_blank" class="waves-effect waves-light">
+                        <i class="zmdi zmdi-help zmdi-hc-fw"></i>
+                        Ayuda
+                    </a>
                 </li>
             </ul>
         </div>

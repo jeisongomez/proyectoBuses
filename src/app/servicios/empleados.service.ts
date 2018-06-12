@@ -17,4 +17,6 @@ export class EmpleadosService {
     return this._http.get(this.url + 'empleados');
   }
 
+  
+
 }

@@ -10,6 +10,7 @@ import { ClienteComponent } from './componentes/cliente/cliente.component';
 import { FacturacionComponent } from './componentes/facturacion/facturacion.component';
 import { DetalleFacturaComponent } from './componentes/detalle-factura/detalle-factura.component';
 import { EmpleadosComponent } from './componentes/empleados/empleados.component';
+import { CrearEmpleadoComponent } from './componentes/crear-empleado/crear-empleado.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'facturacion', component: FacturacionComponent },
   { path: 'detalles-facturas', component: DetalleFacturaComponent },
   { path: 'detalles-empleados', component: EmpleadosComponent},
+  { path: 'add-empleado', component: CrearEmpleadoComponent},
   { path: '**', component: ErrorComponent }
 ];
 
